@@ -4,6 +4,9 @@
 
 A reproducible, end-to-end data pipeline that **extracts** a public taxi trips dataset, **transforms** it into analytics-ready **Parquet**, runs **SQL analytics in DuckDB**, and generates **reports + charts**. Built with a clean project structure and **CI on every push** to keep the pipeline reliable.
 
+## Preview
+![Trips by pickup hour](assets/trips_by_hour.png)
+
 ## What this pipeline does
 - **Extract**: downloads raw taxi data to `data/raw/`
 - **Transform**: cleans + enriches data and writes curated Parquet to `data/processed/`
@@ -12,9 +15,10 @@ A reproducible, end-to-end data pipeline that **extracts** a public taxi trips d
 ## Outputs (generated)
 - `reports/kpis.csv` — high-level metrics (counts, averages, etc.)
 - `reports/avg_fare_by_weekday.csv` — weekday fare trends
-- `reports/figures/trips_by_hour.png` — trips by pickup hour chart
+- `reports/figures/trips_by_hour.png` — trips by pickup hour chart (generated)
+- `assets/trips_by_hour.png` — committed preview image used in this README
 
-> Note: `data/` and `reports/` outputs are **gitignored** to keep the repo clean and reproducible.
+> Note: `data/` and `reports/` outputs are **gitignored** to keep the repo clean and reproducible. The `assets/` folder is committed for README visuals.
 
 ## Tech stack
 **Python**, **Pandas**, **DuckDB**, **Parquet (PyArrow)**, **Matplotlib**, **Pytest**, **GitHub Actions**
@@ -30,6 +34,7 @@ cloud-data-pipeline-taxi-analytics/
 │  └─ processed/         # curated parquet (gitignored)
 ├─ reports/
 │  └─ figures/           # charts (gitignored)
+├─ assets/               # committed preview images used in README
 ├─ tests/                # pipeline tests
 └─ .github/workflows/    # CI workflow
 ```
